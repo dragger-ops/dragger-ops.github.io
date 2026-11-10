@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moses Ndereba Gichuru — Full-stack developer</title>
+<meta name="description" content="Self-taught full-stack developer. AlgoSphere Quant, Agnora Motors, Chrome extensions and the KawaiiGPT web platform — interface, API, database, auth and deploy.">
+<meta name="author" content="Moses Ndereba Gichuru">
+<link rel="canonical" href="https://dragger-ops.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Moses Ndereba Gichuru — Full-stack developer">
+<meta property="og:description" content="I build whole products, not parts of them. A trading intelligence platform, a verified-car marketplace, and browser extensions that hold up against pages which change without warning.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2327574A'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='bold' fill='%23F1F2EF' text-anchor='middle'%3EMN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky left index rail + one wide content column; work listed as full-width manifest rows, not cards. */
+:root{
+  color-scheme:light;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#F1F2EF; --surface:#FAFAF8; --ink:#14181A; --muted:#5D6663; --rule:#D7DAD4;
+  --accent:#27574A; --flare:#A8341F;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#101412; --surface:#171C19; --ink:#E8EBE6; --muted:#98A29C; --rule:#2A312D;
+  --accent:#6FB79F; --flare:#E0714F; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#101412; --surface:#171C19; --ink:#E8EBE6; --muted:#98A29C; --rule:#2A312D;
+  --accent:#6FB79F; --flare:#E0714F; color-scheme:dark;
+}
+*{box-sizing:border-box}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--body); font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.03;letter-spacing:-.025em;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+
+.shell{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr}
+@media (min-width:920px){.shell{grid-template-columns:200px minmax(0,1fr);column-gap:72px}}
+
+/* ---- index rail ---- */
+.rail{padding-block:28px 10px;min-width:0}
+@media (min-width:920px){
+  .rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 40px);align-self:start;height:max-content;padding-block:72px 0}
+}
+.sig{font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:-.02em;line-height:1.15}
+.sig span{display:block;color:var(--muted);font-family:var(--mono);font-size:.68rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;margin-top:8px}
+.nav{display:flex;flex-wrap:wrap;gap:4px 18px;margin:22px 0 0;padding:0;list-style:none}
+@media (min-width:920px){.nav{display:grid;gap:2px;border-left:1px solid var(--rule);padding-left:14px}}
+.nav a{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:3px 0;display:inline-block}
+.nav a:hover,.nav a:focus-visible{color:var(--accent)}
+
+/* ---- content ---- */
+.main{min-width:0;padding-block:8px 64px}
+@media (min-width:920px){.main{padding-block:72px 96px}}
+section{padding-block:52px;border-top:1px solid var(--rule)}
+section:first-of-type{border-top:0;padding-top:0}
+.sechead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:30px}
+.sechead h2{font-size:clamp(1.3rem,3.4vw,1.75rem)}
+
+/* hero */
+.hero h1{font-size:clamp(2.4rem,8.2vw,4.5rem);margin:16px 0 0}
+.hero .lead{font-size:clamp(1.05rem,2.5vw,1.28rem);line-height:1.5;max-width:35em;margin-top:24px}
+.hero .lead b{font-weight:600;color:var(--flare)}
+.anim{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.anim:nth-child(2){animation-delay:.06s}
+.anim:nth-child(3){animation-delay:.12s}
+.anim:nth-child(4){animation-delay:.18s}
+@keyframes rise{from{opacity:.001;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.anim{animation:none}}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));gap:1px;margin-top:40px;background:var(--rule);border:1px solid var(--rule)}
+.facts div{background:var(--surface);padding:16px 18px;min-width:0}
+.facts strong{display:block;font-family:var(--display);font-weight:600;font-size:1.65rem;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+.facts span{display:block;margin-top:5px}
+
+/* work manifest */
+.item{display:grid;grid-template-columns:1fr;gap:14px;padding-block:32px;border-bottom:1px solid var(--rule)}
+.item:first-of-type{border-top:1px solid var(--rule)}
+@media (min-width:720px){.item{grid-template-columns:172px minmax(0,1fr);column-gap:40px}}
+.meta{min-width:0;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+@media (min-width:720px){.meta{display:block;padding-top:7px}}
+.domain{font-family:var(--mono);font-size:.76rem;color:var(--accent);text-decoration:none;word-break:break-all;display:inline-block}
+a.domain:hover{text-decoration:underline}
+.status{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media (min-width:720px){.status{margin-top:9px}}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+.dot.off{background:var(--muted)}
+.body{min-width:0}
+.body h3{font-size:clamp(1.3rem,4vw,1.72rem);font-weight:600}
+.kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--flare);margin-bottom:8px}
+.body>p{margin-top:12px;color:var(--muted);max-width:60ch}
+.detail{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px;max-width:64ch}
+.detail li{position:relative;padding-left:18px;font-size:.94rem;color:var(--ink)}
+.detail li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--flare)}
+.code{font-family:var(--mono);font-size:.86em}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 0;padding:0;list-style:none}
+.tags li{font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;color:var(--muted);border:1px solid var(--rule);padding:3px 8px;background:var(--surface)}
+
+/* stack */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:34px 40px}
+.col{min-width:0}
+.col h3{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--flare);padding-bottom:9px;border-bottom:1px solid var(--rule)}
+.col ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:5px}
+.col li{font-size:.95rem;color:var(--muted)}
+
+/* contact */
+.contact{display:grid;gap:22px;max-width:46em}
+.contact>p{color:var(--muted);max-width:52ch}
+.rows{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.row{background:var(--surface);display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:15px 18px}
+.row .mono{flex:none;width:68px}
+.val{font-family:var(--mono);font-size:.9rem;word-break:break-all;min-width:0;flex:1 1 140px;color:var(--ink);text-decoration:none}
+a.val:hover{color:var(--accent)}
+button{font-family:var(--mono);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--rule);padding:6px 11px;cursor:pointer;flex:none}
+button:hover{border-color:var(--accent);color:var(--accent)}
+:focus-visible{outline:2px solid var(--flare);outline-offset:2px}
+footer{border-top:1px solid var(--rule);padding-block:26px 8px}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <aside class="rail">
+    <div class="sig">Moses Ndereba Gichuru<span>Full-stack developer</span></div>
+    <ul class="nav">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://github.com/dragger-ops">GitHub</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <section class="hero">
+      <p class="mono anim">Self-taught &middot; front to back &middot; shipped to production</p>
+      <h1 class="anim">I build whole products, not parts of them.</h1>
+      <p class="lead anim">A trading intelligence platform, a verified-car marketplace, and browser extensions that hold up against third-party pages which change without warning. Interface, API, database, auth, deploy &mdash; <b>and the tests that keep them honest.</b></p>
+      <div class="facts anim">
+        <div><strong>5</strong><span class="mono">Shipped projects</span></div>
+        <div><strong>3</strong><span class="mono">Production domains</span></div>
+        <div><strong>22</strong><span class="mono">Test suites, one extension</span></div>
+        <div><strong>100%</strong><span class="mono">Self-taught</span></div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="sechead"><h2>Selected work</h2><span class="mono">Five entries</span></div>
+
+      <article class="item">
+        <div class="meta">
+          <a class="domain" href="https://algospherequant.com">algospherequant.com</a>
+          <span class="status"><span class="dot"></span>Live</span>
+        </div>
+        <div class="body">
+          <p class="kicker">Trader intelligence platform</p>
+          <h3>AlgoSphere Quant</h3>
+          <p>An AI trader intelligence system built around a behavioural trade journal rather than a signal feed. Trades import from the broker or go in by hand, then every one is graded &mdash; so a trader can see which part of their own process is leaking money.</p>
+          <ul class="detail">
+            <li>Five process grades on every trade: execution, psychology, risk, discipline, timing</li>
+            <li>Strategy Lab &mdash; an 18-block visual quant builder, backtester, Monte Carlo and a six-stage deployment readiness ladder</li>
+            <li>15-gate risk system; Sharpe, Sortino, Calmar and drawdown clustering</li>
+            <li>Broker and exchange connections for MT4, MT5, cTrader, Binance, Bybit and OKX, with API keys encrypted at rest</li>
+            <li>Turborepo monorepo across apps and shared packages, typed end to end</li>
+          </ul>
+          <ul class="tags"><li>Next.js</li><li>TypeScript</li><li>Turborepo</li><li>Postgres</li><li>Broker APIs</li><li>Monte Carlo</li></ul>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="meta">
+          <a class="domain" href="https://agnoramotors.com">agnoramotors.com</a>
+          <span class="status"><span class="dot"></span>Live</span>
+        </div>
+        <div class="body">
+          <p class="kicker">Marketplace</p>
+          <h3>Agnora Motors</h3>
+          <p>Kenya&rsquo;s verified-car marketplace &mdash; listings, search, seller accounts and the database underneath them. Next.js 16 on the App Router over Neon Postgres.</p>
+          <ul class="detail">
+            <li>Auth.js v5 with a Neon adapter, bcrypt password hashing and transactional email through Resend</li>
+            <li>A migration runner written by hand: every SQL file idempotent and checksummed, skipped when unchanged, tracked in a <span class="code">schema_migrations</span> ledger, non-zero exit on any failure</li>
+            <li>Public-listing visibility resolved through one shared predicate, so search results and detail pages can never disagree about what is public</li>
+            <li>Cloudinary image pipeline, Zod-validated forms, typed from the database row to the input field</li>
+          </ul>
+          <ul class="tags"><li>Next.js 16</li><li>TypeScript</li><li>Neon Postgres</li><li>Auth.js v5</li><li>Cloudinary</li><li>Zod</li><li>Tailwind</li></ul>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="meta">
+          <span class="domain">chrome &middot; manifest v3</span>
+          <span class="status"><span class="dot"></span>In use</span>
+        </div>
+        <div class="body">
+          <p class="kicker">Browser extension</p>
+          <h3>Mindrift Review Assistant</h3>
+          <p>A human-in-the-loop assistant for image-comparison annotation work. Plain JavaScript, zero runtime dependencies, no build step. It inspects and assists; it never decides or submits.</p>
+          <ul class="detail">
+            <li>Full inspection workspace: zoom and pan, fit and actual size, side-by-side, overlay with opacity, pixel difference, synced magnifier and image metadata</li>
+            <li>Task detection driven by an explicit lifecycle state machine that survives SPA navigation</li>
+            <li>A selector registry where every entry records whether it was actually verified against the live tool, so guesses rank below facts instead of hiding among them</li>
+            <li>Verifying against the real platform corrected what the fixtures had assumed: the task runs in a separate top-level tab on a third-party host, and the per-task id lives in a hidden field rather than a URL that never moves</li>
+            <li>22 Node test suites, including regressions asserting that detection clicks, selects and submits nothing</li>
+          </ul>
+          <ul class="tags"><li>Manifest V3</li><li>Vanilla JS</li><li>Service workers</li><li>Canvas</li><li>jsdom tests</li><li>Vision APIs</li></ul>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="meta">
+          <span class="domain">chrome &middot; manifest v3</span>
+          <span class="status"><span class="dot"></span>In use</span>
+        </div>
+        <div class="body">
+          <p class="kicker">Browser extension</p>
+          <h3>MargVoice AI Batch Reader</h3>
+          <p>One extension doing two different jobs on two different sites, through two separate adapters &mdash; batch workflow automation on one, and a strictly read-only task reader on the other.</p>
+          <ul class="detail">
+            <li>A site registry with per-host adapters and task fingerprinting, so each site gets only the behaviour it is supposed to have</li>
+            <li>Pluggable speech providers, with the model catalogue read from the live endpoint instead of hardcoded from documentation</li>
+            <li>The read-only boundary is enforced by construction rather than by a setting: the sensitive code is never injected on that origin, the content script runs in an isolated world, and generated audio is wired only to the speakers</li>
+            <li>Each of those guarantees is asserted against the shipped source by tests, so they are re-checked on every run instead of merely documented</li>
+          </ul>
+          <ul class="tags"><li>Manifest V3</li><li>TTS APIs</li><li>Isolated worlds</li><li>AudioContext</li><li>Node tests</li></ul>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="meta">
+          <a class="domain" href="https://kawaiigpt.com">kawaiigpt.com</a>
+          <span class="status"><span class="dot off"></span>Rebuild in progress</span>
+        </div>
+        <div class="body">
+          <p class="kicker">Conversational AI</p>
+          <h3>KawaiiGPT web platform</h3>
+          <p>A web platform built around the open-source KawaiiGPT tool, giving a command-line project an account system and a browser. The backend is currently being regenerated against the existing frontend&rsquo;s API contract rather than redesigning the client around a new server.</p>
+          <ul class="detail">
+            <li>Accounts, saved conversations and token-by-token streaming behind an explicit API contract</li>
+            <li>The original implementation kept as the behavioural reference for the rebuilt service</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>Node</li><li>Streaming / SSE</li><li>Auth</li><li>Database</li></ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="stack">
+      <div class="sechead"><h2>What I work with</h2><span class="mono">By layer</span></div>
+      <div class="cols">
+        <div class="col">
+          <h3>Interface</h3>
+          <ul><li>React, Next.js App Router</li><li>TypeScript, JavaScript</li><li>Tailwind, Framer Motion</li><li>Chrome extensions (MV3)</li><li>Canvas and image tooling</li></ul>
+        </div>
+        <div class="col">
+          <h3>Backend</h3>
+          <ul><li>Node.js</li><li>Python</li><li>REST API design</li><li>Auth.js, sessions, bcrypt</li><li>Zod validation, error handling</li></ul>
+        </div>
+        <div class="col">
+          <h3>Data &amp; realtime</h3>
+          <ul><li>PostgreSQL, Neon serverless</li><li>Migrations and schema ledgers</li><li>Server-sent events, WebSockets</li><li>Streaming LLM responses</li><li>Broker, TTS and vision APIs</li></ul>
+        </div>
+        <div class="col">
+          <h3>Ship &amp; operate</h3>
+          <ul><li>Turborepo, npm workspaces</li><li>Git, GitHub</li><li>Vercel, VPS deployment</li><li>Environment and secret handling</li><li>Node test runner, jsdom</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="sechead"><h2>Get in touch</h2><span class="mono">Open to work</span></div>
+      <div class="contact">
+        <p>Available for full-stack build work, backend rescues and extension development. Email is the fastest way to reach me.</p>
+        <div class="rows">
+          <div class="row">
+            <span class="mono">Email</span>
+            <a class="val" href="mailto:mosesndereba06@gmail.com">mosesndereba06@gmail.com</a>
+            <button id="copy-email" data-copy="mosesndereba06@gmail.com">Copy</button>
+          </div>
+          <div class="row">
+            <span class="mono">GitHub</span>
+            <a class="val" href="https://github.com/dragger-ops">github.com/dragger-ops</a>
+            <button id="copy-gh" data-copy="https://github.com/dragger-ops">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer><p class="mono">Moses Ndereba Gichuru &mdash; built by hand</p></footer>
+  </main>
+</div>
+
+<script>
+document.querySelectorAll("button[data-copy]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var text = btn.getAttribute("data-copy");
+    var restore = function (label) {
+      btn.textContent = label;
+      setTimeout(function () { btn.textContent = "Copy"; }, 1700);
+    };
+    var fallback = function () {
+      var target = btn.parentNode.querySelector(".val");
+      if (!target) { restore("Select it"); return; }
+      try {
+        var range = document.createRange();
+        range.selectNodeContents(target);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        restore("Selected");
+      } catch (e) { restore("Select it"); }
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { restore("Copied"); }, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+});
+</script>
+</body>
+</html>
