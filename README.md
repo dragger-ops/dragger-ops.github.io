@@ -4,10 +4,14 @@ Personal portfolio site. One static page, no build step, no dependencies to inst
 
 **Live:** https://dragger-ops.github.io/
 
+Also answers at https://dragger-ops.github.io/portfolio, which redirects to the root. The page itself exists in exactly one place, so there is nothing to keep in sync.
+
 ## Contents
 
 ```
-index.html    the whole site — markup, styles and the copy-to-clipboard script
+index.html              the whole site — markup, styles and the copy-to-clipboard script
+portfolio/index.html    redirect to the root, so the /portfolio link also works
+.nojekyll               serve the files as-is; skip Jekyll processing
 ```
 
 Fonts are the only external request (Google Fonts: Bricolage Grotesque, Inter, IBM Plex Mono). Everything else is inline, including the favicon.
